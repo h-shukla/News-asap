@@ -1,10 +1,12 @@
-# News Application made in reactjs
-- This application uses class based components and demonstrates their use over much used nowadays functional based components.
+# What is this?
+	News Application made in reactjs
 
-# What are differences in class based vs function based
-- To access variables inside the render function, 'this' keyword is used.
-- most of the object oriented concepts are relevant like constructors, methods etc.
+# What I learnt making this application?
+- React class based components.
+- To set props and state of class based components.
+- To use react with external APIs for getting data.
+- To extract specific pieces of data for different uses according to our needs. 
 
-**read the whole project for better understanding of the REACTJS class based components**
-
-**Learn javascript maps**
+### Personal Todo
+- Read the whole project for better understanding of the REACTJS class based components
+- Learn javascript maps
