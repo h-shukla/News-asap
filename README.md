@@ -1,5 +1,5 @@
 # What is this?
-- News Application made in reactjs
+This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetch data of news and displays it in formatted manner. It also has navgation bar links to different categories of news to be displayed.
 
 # What I learnt making this application?
 - React class based components.
