@@ -1,5 +1,5 @@
 # What is this?
-	News Application made in reactjs
+- News Application made in reactjs
 
 # What I learnt making this application?
 - React class based components.
