@@ -8,8 +8,3 @@
 **read the whole project for better understanding of the REACTJS class based components**
 
 **Learn javascript maps**
-
-# API KEY
-932974e4a67f46c987287775cd2cd325
-
-31st video 5:00
