@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar.js';
 import News from './components/News.js';
+// for routing
 import {
     BrowserRouter as Router,
     Switch,
@@ -28,3 +29,7 @@ export default class App extends Component {
         );
     }
 }
+
+// wrap everything into router tag
+// wrap everything that will change into switch tag
+
