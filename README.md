@@ -11,3 +11,4 @@ This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetc
 - Read the whole project for better understanding of the REACTJS class based components
 - Learn javascript maps
 
+continue with video 36
