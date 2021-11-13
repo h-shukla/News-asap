@@ -18,70 +18,67 @@ export default class News extends React.Component {
         apikey: PropTypes.string,
     }
 
-    constructor() {
+    constructor(props) {
         // A constructor is called everytime a class is called
         // super class' constructor should be called
-        super();
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1
         };
+
+        // just for visual effects
+        if(props.category === 'general'){
+            document.title = `Home - NASAP`;
+        } else {
+            document.title = `${this.capitalizeFirstLetter(this.props.category)} - NASAP`;
+        }
     }
 
+    capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    
     topScroll = () => {
         document.body.scrollTop=0;
         document.documentElement.scrollTop=0;
-    }
+    };
 
-    async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=1&pageSize=${this.props.pageSize}`;
+    async updateNews(pageNo) {
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
-
-        this.setState({articles: parsedData.articles, totalResults: parsedData.totalResults});
+        this.setState({articles: parsedData.articles, totalResults: parsedData.totalResults, loading: false});
+    }
+    
+    async componentDidMount() {
+        this.updateNews();
     }
 
     handlePreviousClick = async () => {
         this.topScroll();
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}c&ategory=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        this.setState({loading: true});
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        this.setState({
-            page: this.state.page - 1,
-            articles: parsedData.articles,
-            loading: false,
-        });
+        this.setState({page: this.state.page - 1});
+        this.updateNews();
     }
 
     handleNextClick = async () => {
         this.topScroll();
-
-        if (!(Math.ceil(this.state.totalResults/this.props.pageSize) < this.state.page + 1)) {
-
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-            this.setState({loading: true});
-            let data = await fetch(url);
-            let parsedData = await data.json();
-            this.setState({
-                page: this.state.page + 1,
-                articles: parsedData.articles,
-                loading: false,
-            });
-        }
+        this.setState({page: this.state.page + 1});
+        this.updateNews();
     }
 
     render() {
         return (
             <div className="container my-3">
-              <h2 className="text-center" style={{margin: '35px',}}>NASAP - Top headlines</h2>
+              <h2 className="text-center" style={{margin: '35px',}}>NASAP - Top {this.capitalizeFirstLetter(this.props.category)} headlines</h2>
               {this.state.loading && <Spinner />}
               <div className="row">
                 {this.state.articles.map((element) => {
                     return <div className="col-md-4" key={element.url} >
-                             <NewsItem title={element.title?element.title.slice(0, 65):""} description={element.description?element.description.slice(0, 100):""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
-                           </div>;
+                                 <NewsItem title={element.title?element.title.slice(0, 65):""} description={element.description?element.description.slice(0, 100):""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
+                               </div>;
                 })}
               </div>
               <div className="container d-flex justify-content-between">
