@@ -12,6 +12,6 @@ This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetc
 - Learn javascript maps
 
 # The working application looks something like
-![working project's file]('./misc/Home - NASAP.png')
+![working project's file](./misc/'Home - NASAP.png')
 
 ***apikey should be stored in .env.local file in root directory***
