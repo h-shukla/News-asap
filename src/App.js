@@ -3,30 +3,33 @@ import Navbar from './components/Navbar.js';
 import News from './components/News.js';
 // for routing
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+  BrowserRouter as Router,
+  Switch,
+  Route,
 } from "react-router-dom";
 
 export default class App extends Component {
-    render() {
-        return (
-            <div>
-              <Router>
-                <Navbar/>
-                <Switch>
-                  <Route exact path="/"><News key="general" pageSize={12} country="in" category="general"/></Route>
-                  <Route exact path="/business"><News key="business" pageSize={12} country="in" category="business"/></Route>
-                  <Route exact path="/entertainment"><News key="entertainment" pageSize={12} country="in" category="entertainment"/></Route>
-                  <Route exact path="/health"><News key="health" pageSize={12} country="in" category="health"/></Route>
-                  <Route exact path="/science"><News key="science" pageSize={12} country="in" category="science"/></Route>
-                  <Route exact path="/sports"><News key="sports" pageSize={12} country="in" category="sports"/></Route>
-                  <Route exact path="/technology"><News key="technology" pageSize={12} country="in" category="technology"/></Route>
-                </Switch>
-              </Router>
-            </div>
-        );
-    }
+  pagesize=12;
+  apikey=process.env.REACT_APP_NEWS_API;
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/"><News key="general" pageSize={this.pagesize} country="in" category="general" apikey={this.apikey}/></Route>
+            <Route exact path="/business"><News key="business" pageSize={this.pagesize} country="in" category="business" apikey={this.apikey}/></Route>
+            <Route exact path="/entertainment"><News key="entertainment" pageSize={this.pagesize} country="in" category="entertainment" apikey={this.apikey}/></Route>
+            <Route exact path="/health"><News key="health" pageSize={this.pagesize} country="in" category="health" apikey={this.apikey}/></Route>
+            <Route exact path="/science"><News key="science" pageSize={this.pagesize} country="in" category="science" apikey={this.apikey}/></Route>
+            <Route exact path="/sports"><News key="sports" pageSize={this.pagesize} country="in" category="sports" apikey={this.apikey}/></Route>
+            <Route exact path="/technology"><News key="technology" pageSize={this.pagesize} country="in" category="technology" apikey={this.apikey}/></Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 // wrap everything into router tag
