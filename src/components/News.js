@@ -71,7 +71,7 @@ export default class News extends React.Component {
     render() {
         return (
             <div className="container my-3">
-                <h2 className="text-center" style={{ margin: '35px', }}>NASAP - Top {this.capitalizeFirstLetter(this.props.category)} headlines</h2>
+                <h2 className="text-center" style={{ margin: '90px 35px 30px 35px'}}>NASAP - Top {this.capitalizeFirstLetter(this.props.category)} headlines</h2>
                 {this.state.loading && <Spinner />}
                 <div className="row">
                     {this.state.articles.map((element) => {
