@@ -23,3 +23,4 @@ export default class NewsItem extends React.Component {
 
 // instead of showing GMT
 // should probably add timezone according to the location of the user
+// imageurl is set to a default news image if the image is not provided by the api

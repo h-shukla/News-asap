@@ -15,3 +15,10 @@ This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetc
 ![working project's file](./misc/workingapp.png)
 
 **NOTE:** ***apikey should be stored in .env.local file in root directory***
+
+To setup the app, install dependencies first
+   npm i
+
+To run the app in development server
+   npm start
+
