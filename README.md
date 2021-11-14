@@ -14,4 +14,4 @@ This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetc
 # The working application looks something like
 ![working project's file](./misc/workingapp.png)
 
-***apikey should be stored in .env.local file in root directory***
+**NOTE:** ***apikey should be stored in .env.local file in root directory***
