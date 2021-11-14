@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class NewsItem extends React.Component {
   render() {
-    // these are props
+    // props
     let { title, description, imageUrl, newsUrl, author, date } = this.props;
 
     return (
@@ -21,6 +21,8 @@ export default class NewsItem extends React.Component {
   }
 };
 
+// TODO
 // instead of showing GMT
 // should probably add timezone according to the location of the user
 // imageurl is set to a default news image if the image is not provided by the api
+
