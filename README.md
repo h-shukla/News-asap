@@ -22,5 +22,3 @@ To run the app in development server
 
 npm start
 ```
-
-
