@@ -7,10 +7,6 @@ This is a news app made in reactjs. This uses the [NewsApi](newsapi.org) to fetc
 - To use react with external APIs for getting data.
 - To extract specific pieces of data for different uses according to our needs. 
 
-### Personal Todo
-- Read the whole project for better understanding of the REACTJS class based components
-- Learn javascript maps
-
 # The working application looks something like
 ![working project's file](./misc/workingapp.png)
 
