@@ -71,19 +71,19 @@ export default class News extends React.Component {
     render() {
         return (
             <div className="container my-3">
-                <h2 className="text-center" style={{ margin: '90px 35px 30px 35px' }}>NASAP - Top {this.capitalizeFirstLetter(this.props.category)} headlines</h2>
-                {this.state.loading && <Spinner />}
-                <div className="row">
-                    {this.state.articles.map((element) => {
-                        return <div className="col-md-4" key={element.url} >
-                            <NewsItem title={element.title ? element.title.slice(0, 65) : ""} description={element.description ? element.description.slice(0, 100) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
-                        </div>;
-                    })}
-                </div>
-                <div className="container d-flex justify-content-between">
-                    <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePreviousClick}>&larr; Previous</button>
-                    <button disabled={Math.ceil(this.state.totalResults / this.props.pageSize) < this.state.page + 1} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div>
+              <h2 className="text-center" style={{ margin: '90px 35px 30px 35px' }}>NASAP - Top {this.capitalizeFirstLetter(this.props.category)} headlines</h2>
+              {this.state.loading && <Spinner />}
+              <div className="row">
+                {this.state.articles.map((element) => {
+                    return <div className="col-md-4" key={element.url} >
+                                           <NewsItem title={element.title ? element.title.slice(0, 65) : ""} description={element.description ? element.description.slice(0, 100) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
+                                         </div>;
+                })}
+              </div>
+              <div className="container d-flex justify-content-between">
+                <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePreviousClick}>&larr; Previous</button>
+                <button disabled={Math.ceil(this.state.totalResults / this.props.pageSize) < this.state.page + 1} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+              </div>
             </div>
         );
     }
